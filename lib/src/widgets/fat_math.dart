@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'fat_scrollable_block.dart';
-import 'fat_theme.dart';
+import '../fat_theme.dart';
 
 class FatMath extends StatelessWidget {
   final md.Element element;
@@ -17,7 +17,7 @@ class FatMath extends StatelessWidget {
       return isBlock ? const SizedBox(height: 24) : const SizedBox.shrink();
     }
 
-    final ft = FatTheme.of(context);
+    final ft = FatMarkdownTheme.of(context);
     final math = Math.tex(
       formula,
       mathStyle: isBlock ? MathStyle.display : MathStyle.text,

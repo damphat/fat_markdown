@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// MaterialApp(
 ///   theme: ThemeData(
 ///     extensions: [
-///       FatTheme(
+///       FatMarkdownTheme(
 ///         codeFontSize: 14,
 ///         codeBlockBorderRadius: 12,
 ///         // Add border to blocks:
@@ -28,8 +28,8 @@ import 'package:flutter/material.dart';
 ///   ),
 /// )
 /// ```
-class FatTheme extends ThemeExtension<FatTheme> {
-  const FatTheme({
+class FatMarkdownTheme extends ThemeExtension<FatMarkdownTheme> {
+  const FatMarkdownTheme({
     this.codeFontFamily = 'RobotoMono',
     this.codeFontFamilyFallback = const ['SF Mono', 'Courier New', 'monospace'],
     this.codeFontSize = 13.0,
@@ -106,11 +106,11 @@ class FatTheme extends ThemeExtension<FatTheme> {
   final bool tableStretch;
 
   // ── Accessor ──────────────────────────────────────────────────────────────
-  static const FatTheme _defaults = FatTheme();
+  static const FatMarkdownTheme _defaults = FatMarkdownTheme();
 
-  /// Returns [FatTheme] from context, falling back to defaults if not set.
-  static FatTheme of(BuildContext context) =>
-      Theme.of(context).extension<FatTheme>() ?? _defaults;
+  /// Returns [FatMarkdownTheme] from context, falling back to defaults if not set.
+  static FatMarkdownTheme of(BuildContext context) =>
+      Theme.of(context).extension<FatMarkdownTheme>() ?? _defaults;
 
   // ── Helpers ───────────────────────────────────────────────────────────────
   TextStyle inlineCodeTextStyle(BuildContext context) {
@@ -152,7 +152,7 @@ class FatTheme extends ThemeExtension<FatTheme> {
 
   // ── ThemeExtension ────────────────────────────────────────────────────────
   @override
-  FatTheme copyWith({
+  FatMarkdownTheme copyWith({
     String? codeFontFamily,
     List<String>? codeFontFamilyFallback,
     double? codeFontSize,
@@ -170,7 +170,7 @@ class FatTheme extends ThemeExtension<FatTheme> {
     Color? codeBlockDividerColor,
     TableBorder? tableBorder,
     bool? tableStretch,
-  }) => FatTheme(
+  }) => FatMarkdownTheme(
     codeFontFamily: codeFontFamily ?? this.codeFontFamily,
     codeFontFamilyFallback:
         codeFontFamilyFallback ?? this.codeFontFamilyFallback,
@@ -195,9 +195,9 @@ class FatTheme extends ThemeExtension<FatTheme> {
   );
 
   @override
-  FatTheme lerp(FatTheme? other, double t) {
+  FatMarkdownTheme lerp(FatMarkdownTheme? other, double t) {
     if (other == null) return this;
-    return FatTheme(
+    return FatMarkdownTheme(
       codeFontFamily: t < 0.5 ? codeFontFamily : other.codeFontFamily,
       codeFontFamilyFallback: t < 0.5
           ? codeFontFamilyFallback

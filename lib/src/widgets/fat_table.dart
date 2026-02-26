@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'fat_node.dart';
-import 'fat_theme.dart';
+import '../fat_theme.dart';
 
 class FatTable extends StatelessWidget {
   final md.Element element;
@@ -10,7 +10,7 @@ class FatTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ft = FatTheme.of(context);
+    final ft = FatMarkdownTheme.of(context);
     final rows = <TableRow>[];
     bool isHead = false;
 
@@ -72,7 +72,7 @@ class FatTable extends StatelessWidget {
   /// Always stretches to fill width AND scrolls when content overflows:
   /// - [Container] with `minWidth = parentWidth` keeps background full-width.
   /// - [SingleChildScrollView] handles overflow.
-  Widget table(BuildContext context, List<TableRow> rows, FatTheme ft) {
+  Widget table(BuildContext context, List<TableRow> rows, FatMarkdownTheme ft) {
     final decoration = ft.resolveBlockDecoration(context);
     final border = ft.resolveTableBorder(context);
     final stretch = ft.tableStretch;

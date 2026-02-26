@@ -39,7 +39,7 @@ class _ExampleAppState extends State<ExampleApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
         extensions: [
-          FatTheme(tableStretch: true),
+          FatMarkdownTheme(tableStretch: true),
         ],
       ),
       darkTheme: ThemeData(
@@ -49,7 +49,7 @@ class _ExampleAppState extends State<ExampleApp> {
         ),
         useMaterial3: true,
         extensions: const [
-          FatTheme(tableStretch: false),
+          FatMarkdownTheme(tableStretch: false),
         ],
       ),
       home: HomePage(

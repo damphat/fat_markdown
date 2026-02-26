@@ -14,13 +14,13 @@ A powerful Flutter Markdown widget with **LaTeX math** and **syntax highlighting
 - ✅ GitHub-style checkboxes
 - 🔗 Tappable links
 - 🐞 Built-in tree-view debug mode
-- 🎨 Fully themeable via `FatTheme` (`ThemeExtension`)
+- 🎨 Fully themeable via `FatMarkdownTheme` (`ThemeExtension`)
 
 ## Installation
 
 ```yaml
 dependencies:
-  fat_markdown: ^0.9.0
+  fat_markdown: ^0.9.1
 ```
 
 ## Usage
@@ -37,13 +37,13 @@ FatMarkdown(
 
 ## Theming
 
-Customise via `FatTheme` in your `ThemeData.extensions`:
+Customise via `FatMarkdownTheme` in your `ThemeData.extensions`:
 
 ```dart
 MaterialApp(
   theme: ThemeData(
     extensions: [
-      FatTheme(
+      FatMarkdownTheme(
         codeFontSize: 14,
         tableStretch: true,
         codeBlockDividerColor: Colors.transparent, // hide divider

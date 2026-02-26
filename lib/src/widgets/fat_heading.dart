@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'fat_node.dart';
-import 'fat_theme.dart';
+import '../fat_theme.dart';
 
 class FatHeading extends StatelessWidget {
   final md.Element element;
@@ -21,7 +21,7 @@ class FatHeading extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: FatTheme.of(context).headingTopSpacing),
+        SizedBox(height: FatMarkdownTheme.of(context).headingTopSpacing),
         DefaultTextStyle.merge(
           style: style,
           child: FatMarkdownNodeList(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'fat_syntaxes.dart';
+import 'fat_config.dart';
+import 'fat_theme.dart';
 import 'widgets/fat_node.dart';
-
-export 'widgets/fat_theme.dart';
 
 /// A powerful Flutter widget that renders Markdown with LaTeX and syntax highlighting.
 ///
@@ -14,7 +14,7 @@ export 'widgets/fat_theme.dart';
 /// )
 /// ```
 ///
-/// Customize appearance via [FatTheme] in your [ThemeData.extensions].
+/// Customize appearance via [FatMarkdownTheme] in your [ThemeData.extensions].
 class FatMarkdown extends StatefulWidget {
   const FatMarkdown({
     super.key,
@@ -105,9 +105,7 @@ class _FatMarkdownState extends State<FatMarkdown> {
       onImageTap: widget.onImageTap,
       allImages: _allImages,
       enableMath: widget.enableMath,
-      child: SelectionArea(
-        child: FatMarkdownNodeList(nodes: _nodes),
-      ),
+      child: SelectionArea(child: FatMarkdownNodeList(nodes: _nodes)),
     );
   }
 }

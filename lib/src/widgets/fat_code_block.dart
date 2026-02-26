@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:syntax_highlight/syntax_highlight.dart';
-import 'fat_theme.dart';
+import '../fat_theme.dart';
 
 class FatCodeBlock extends StatefulWidget {
   final md.Element element;
@@ -80,7 +80,7 @@ class _FatCodeBlockState extends State<FatCodeBlock> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final ft = FatTheme.of(context);
+    final ft = FatMarkdownTheme.of(context);
     final lang = _normalize(language);
     final decoration = ft.resolveBlockDecoration(context);
 
@@ -124,7 +124,7 @@ class _FatCodeBlockState extends State<FatCodeBlock> {
 class _CodeHeader extends StatelessWidget {
   final String? language;
   final String text;
-  final FatTheme ft;
+  final FatMarkdownTheme ft;
 
   const _CodeHeader({
     required this.language,
@@ -165,7 +165,7 @@ class _CodeContent extends StatelessWidget {
   final String language;
   final HighlighterTheme? highlighterTheme;
   final bool isLoaded;
-  final FatTheme ft;
+  final FatMarkdownTheme ft;
 
   const _CodeContent({
     required this.text,

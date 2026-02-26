@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'fat_node.dart';
-import 'fat_theme.dart';
+import '../fat_theme.dart';
 
 class FatBlockquote extends StatelessWidget {
   final md.Element element;
@@ -9,7 +9,7 @@ class FatBlockquote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ft = FatTheme.of(context);
+    final ft = FatMarkdownTheme.of(context);
     return Container(
       padding: EdgeInsets.only(
         left: ft.blockquotePaddingLeft,

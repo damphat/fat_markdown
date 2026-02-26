@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'fat_node.dart';
+import '../fat_config.dart';
 
 class FatImage extends StatelessWidget {
   final md.Element element;

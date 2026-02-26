@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'fat_config.dart';
-import 'fat_theme.dart';
+import '../fat_config.dart';
+import '../fat_theme.dart';
 
-export 'fat_config.dart';
 import 'fat_blockquote.dart';
+
 import 'fat_checkbox.dart';
 import 'fat_code_block.dart';
 import 'fat_heading.dart';
@@ -200,10 +200,8 @@ class FatMarkdownNodeList extends StatelessWidget {
   }
 
   Widget _richText(BuildContext context, List<md.Node> nodes) => Text.rich(
-    TextSpan(
-      children: nodes.map((n) => buildInlineSpan(context, n)).toList(),
-    ),
-    strutStyle: FatTheme.of(context).inlineStrutStyle,
+    TextSpan(children: nodes.map((n) => buildInlineSpan(context, n)).toList()),
+    strutStyle: FatMarkdownTheme.of(context).inlineStrutStyle,
   );
 }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'fat_node.dart';
+import '../fat_config.dart';
 
 TextSpan buildLinkSpan(BuildContext context, md.Element e) {
   final url = e.attributes['href'] ?? '';

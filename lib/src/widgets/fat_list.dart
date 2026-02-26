@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'fat_node.dart';
-import 'fat_theme.dart';
+import '../fat_theme.dart';
 
 class FatList extends StatelessWidget {
   final md.Element element;
@@ -55,7 +55,7 @@ class _FatListItem extends StatelessWidget {
                 style: isBullet
                     ? const TextStyle(fontWeight: FontWeight.bold)
                     : null,
-                strutStyle: FatTheme.of(context).inlineStrutStyle,
+                strutStyle: FatMarkdownTheme.of(context).inlineStrutStyle,
               ),
             ),
           ),

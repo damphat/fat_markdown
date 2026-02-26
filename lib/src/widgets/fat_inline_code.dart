@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'fat_theme.dart';
+import '../fat_theme.dart';
 
 /// Renders inline code: `` `code` ``
 class FatInlineCode extends StatelessWidget {
@@ -9,7 +9,7 @@ class FatInlineCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ft = FatTheme.of(context);
+    final ft = FatMarkdownTheme.of(context);
     return Container(
       padding: ft.inlineCodePadding,
       decoration: BoxDecoration(
