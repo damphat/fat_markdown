@@ -54,70 +54,106 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Fat Markdown'),
-        elevation: 3,
-        actions: [
-          IconButton(
-            icon: Icon(widget.isDark ? Icons.light_mode : Icons.dark_mode),
-            onPressed: widget.onThemeToggle,
-            tooltip: 'Toggle Theme',
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // ── Editor ──────────────────────────────────────────────
-                Expanded(
-                  flex: 2,
-                  child: MarkdownEditor(
-                    controller: _controller,
-                    onChanged: () => setState(() {}),
-                  ),
-                ),
-                const VerticalDivider(width: 1),
-                // ── Preview ─────────────────────────────────────────────
-                Expanded(
-                  flex: 3,
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.all(16),
-                    child: FatMarkdown(
-                      data: _controller.text,
-                      mode: _showTreeView
-                          ? FatMarkdownMode.treeview
-                          : FatMarkdownMode.normal,
-                      onLinkTap: _onLinkTap,
-                      onImageTap: _onImageTap,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isMobile = constraints.maxWidth < 700;
+
+        final editor = MarkdownEditor(
+          controller: _controller,
+          onChanged: () => setState(() {}),
+        );
+
+        final preview = _buildPreview(context);
+
+        if (isMobile) {
+          return DefaultTabController(
+            length: 2,
+            child: Scaffold(
+              appBar: AppBar(
+                title: const Text('Fat Markdown'),
+                elevation: 3,
+                actions: [
+                  IconButton(
+                    icon: Icon(
+                      widget.isDark ? Icons.light_mode : Icons.dark_mode,
                     ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          // ── Bottom bar ────────────────────────────────────────────────
-          ColoredBox(
-            color: Theme.of(context).colorScheme.surfaceContainer,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-              child: Row(
-                children: [
-                  const Text('Debug tree-view:'),
-                  const SizedBox(width: 8),
-                  Switch(
-                    value: _showTreeView,
-                    onChanged: (v) => setState(() => _showTreeView = v),
+                    onPressed: widget.onThemeToggle,
+                    tooltip: 'Toggle Theme',
                   ),
                 ],
+                bottom: const TabBar(
+                  tabs: [
+                    Tab(text: 'Editor', icon: Icon(Icons.edit)),
+                    Tab(text: 'Preview', icon: Icon(Icons.remove_red_eye)),
+                  ],
+                ),
               ),
+              body: TabBarView(children: [editor, preview]),
+            ),
+          );
+        }
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Fat Markdown'),
+            elevation: 3,
+            actions: [
+              IconButton(
+                icon: Icon(widget.isDark ? Icons.light_mode : Icons.dark_mode),
+                onPressed: widget.onThemeToggle,
+                tooltip: 'Toggle Theme',
+              ),
+            ],
+          ),
+          body: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // ── Editor ──────────────────────────────────────────────
+              Expanded(flex: 2, child: editor),
+              const VerticalDivider(width: 1),
+              // ── Preview ─────────────────────────────────────────────
+              Expanded(flex: 3, child: preview),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildPreview(BuildContext context) {
+    return Column(
+      children: [
+        // ── Preview Toolbar ───────────────────────────────────────────
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              const Text('Debug tree-view:'),
+              const SizedBox(width: 8),
+              Switch(
+                value: _showTreeView,
+                onChanged: (v) => setState(() => _showTreeView = v),
+              ),
+            ],
+          ),
+        ),
+        // ── Content ───────────────────────────────────────────────────
+        Expanded(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: FatMarkdown(
+              data: _controller.text,
+              mode: _showTreeView
+                  ? FatMarkdownMode.treeview
+                  : FatMarkdownMode.normal,
+              onLinkTap: _onLinkTap,
+              onImageTap: _onImageTap,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
