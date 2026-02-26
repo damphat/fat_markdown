@@ -1,5 +1,7 @@
 # fat_markdown
 
+[![Run Example](https://img.shields.io/badge/Run-Example-blue?style=for-the-badge&logo=flutter)](https://damphat.github.io/fat_markdown/)
+
 A powerful Flutter Markdown widget with **LaTeX math** and **syntax highlighting**.
 
 ## Features

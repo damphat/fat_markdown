@@ -1,0 +1,38 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'latest'
+          channel: 'stable'
+
+      - name: Install dependencies (Root)
+        run: flutter pub get
+
+      - name: Install dependencies (Example)
+        run: |
+          cd example
+          flutter pub get
+
+      - name: Build Web (Example)
+        run: |
+          cd example
+          flutter build web --base-href "/fat_markdown/"
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: example/build/web
+          branch: gh-pages
