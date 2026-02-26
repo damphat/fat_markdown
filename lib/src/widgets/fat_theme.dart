@@ -30,13 +30,8 @@ import 'package:flutter/material.dart';
 /// ```
 class FatTheme extends ThemeExtension<FatTheme> {
   const FatTheme({
-    this.codeFontFamily = 'SF Mono',
-    this.codeFontFamilyFallback = const [
-      'Menlo',
-      'Monaco',
-      'Courier New',
-      'monospace',
-    ],
+    this.codeFontFamily = 'RobotoMono',
+    this.codeFontFamilyFallback = const ['SF Mono', 'Courier New', 'monospace'],
     this.codeFontSize = 13.0,
     this.inlineCodeFontSizeRatio = 0.88,
     this.inlineCodePadding = const EdgeInsets.symmetric(
