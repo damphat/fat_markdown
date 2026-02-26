@@ -122,6 +122,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildPreview(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // ── Preview Toolbar ───────────────────────────────────────────
         Container(
