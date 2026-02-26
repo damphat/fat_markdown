@@ -19,10 +19,3 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^6.0.0
 
-flutter:
-  fonts:
-    - family: RobotoMono
-      fonts:
-        - asset: lib/fonts/RobotoMono-Regular.ttf
-        - asset: lib/fonts/RobotoMono-Bold.ttf
-          weight: 700
