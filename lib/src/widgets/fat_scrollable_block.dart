@@ -23,9 +23,7 @@ class FatScrollableBlock extends StatelessWidget {
             constraints: BoxConstraints(minWidth: constraints.maxWidth),
             child: Padding(
               padding: padding,
-              child: Center(
-                child: child,
-              ),
+              child: Center(child: child),
             ),
           ),
         );

@@ -60,9 +60,7 @@ class _FatListItem extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
-          child: FatMarkdownNodeList(nodes: element.children ?? []),
-        ),
+        Expanded(child: FatMarkdownNodeList(nodes: element.children ?? [])),
       ],
     );
   }

@@ -16,10 +16,7 @@ class FatInlineCode extends StatelessWidget {
         color: Theme.of(context).colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(ft.inlineCodeBorderRadius),
       ),
-      child: Text(
-        element.textContent,
-        style: ft.inlineCodeTextStyle(context),
-      ),
+      child: Text(element.textContent, style: ft.inlineCodeTextStyle(context)),
     );
   }
 }
