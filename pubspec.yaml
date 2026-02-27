@@ -1,7 +1,16 @@
 name: fat_markdown
 description: A powerful Flutter Markdown widget with LaTeX math and syntax highlighting.
 version: 0.9.1
-homepage: https://github.com/damphat/fat_markdown
+homepage: https://damphat.github.io/fat_markdown/
+repository: https://github.com/damphat/fat_markdown
+issue_tracker: https://github.com/damphat/fat_markdown/issues
+
+topics:
+  - markdown
+  - latex
+  - syntax-highlighting
+  - widget
+  - ui
 
 environment:
   sdk: ^3.10.4
