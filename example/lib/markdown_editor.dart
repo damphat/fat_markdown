@@ -143,6 +143,7 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
         Expanded(
           child: TextField(
             controller: widget.controller,
+            autofocus: true,
             maxLines: null,
             expands: true,
             style: const TextStyle(fontFamily: 'monospace'),

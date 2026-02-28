@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
             length: 2,
             child: Scaffold(
               appBar: AppBar(
-                title: const Text('Fat Markdown'),
+                title: const Text('Fat Markdown Demo'),
                 elevation: 3,
                 actions: [
                   IconButton(
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Fat Markdown'),
+            title: const Text('Fat Markdown Demo'),
             elevation: 3,
             actions: [
               IconButton(
@@ -141,8 +141,9 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           color: Theme.of(context).colorScheme.surfaceContainerHighest,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              const Text('Preview'),
+              const Spacer(),
               const Text('Debug tree-view:'),
               const SizedBox(width: 8),
               Switch(
