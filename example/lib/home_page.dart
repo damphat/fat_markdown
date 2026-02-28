@@ -74,6 +74,12 @@ class _HomePageState extends State<HomePage> {
                 elevation: 3,
                 actions: [
                   IconButton(
+                    icon: const Icon(Icons.code),
+                    onPressed: () =>
+                        _onLinkTap('https://github.com/damphat/fat_markdown'),
+                    tooltip: 'View Source on GitHub',
+                  ),
+                  IconButton(
                     icon: Icon(
                       widget.isDark ? Icons.light_mode : Icons.dark_mode,
                     ),
@@ -98,6 +104,12 @@ class _HomePageState extends State<HomePage> {
             title: const Text('Fat Markdown'),
             elevation: 3,
             actions: [
+              IconButton(
+                icon: const Icon(Icons.code),
+                onPressed: () =>
+                    _onLinkTap('https://github.com/damphat/fat_markdown'),
+                tooltip: 'View Source on GitHub',
+              ),
               IconButton(
                 icon: Icon(widget.isDark ? Icons.light_mode : Icons.dark_mode),
                 onPressed: widget.onThemeToggle,
