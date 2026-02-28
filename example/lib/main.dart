@@ -19,18 +19,26 @@ class ExampleApp extends StatefulWidget {
 }
 
 class _ExampleAppState extends State<ExampleApp> {
-  ThemeMode _themeMode = ThemeMode.dark;
+  ThemeMode _themeMode = ThemeMode.system;
 
   void _toggleTheme() {
+    final isDark = _themeMode == ThemeMode.system
+        ? View.of(context).platformDispatcher.platformBrightness ==
+              Brightness.dark
+        : _themeMode == ThemeMode.dark;
+
     setState(() {
-      _themeMode = _themeMode == ThemeMode.dark
-          ? ThemeMode.light
-          : ThemeMode.dark;
+      _themeMode = isDark ? ThemeMode.light : ThemeMode.dark;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final isDark = _themeMode == ThemeMode.system
+        ? View.of(context).platformDispatcher.platformBrightness ==
+              Brightness.dark
+        : _themeMode == ThemeMode.dark;
+
     return MaterialApp(
       title: 'Fat Markdown Example',
       debugShowCheckedModeBanner: false,
@@ -49,11 +57,11 @@ class _ExampleAppState extends State<ExampleApp> {
         ),
         useMaterial3: true,
         extensions: const [
-          FatMarkdownTheme(tableStretch: false),
+          FatMarkdownTheme(tableStretch: true),
         ],
       ),
       home: HomePage(
-        isDark: _themeMode == ThemeMode.dark,
+        isDark: isDark,
         onThemeToggle: _toggleTheme,
       ),
     );
